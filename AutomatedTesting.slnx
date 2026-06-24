@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="AutomatedTesting.Api/AutomatedTesting.Api.csproj" />
+  <Project Path="AutomatedTesting.Db/AutomatedTesting.Db.csproj" />
+</Solution>
