@@ -16,4 +16,8 @@
     <ProjectReference Include="..\AutomatedTesting.Db\AutomatedTesting.Db.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Tasks\Queries\GetAllTasks\" />
+  </ItemGroup>
+
 </Project>
