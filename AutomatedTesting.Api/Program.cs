@@ -1,3 +1,4 @@
+using AutomatedTesting.Application;
 using AutomatedTesting.Application.Features.Tasks.Commands.CreateTask;
 using AutomatedTesting.Db.AppDbContextModels;
 using AutomatedTesting.Repositories.Tasks;
@@ -18,7 +19,7 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
 });
 
 builder.Services.AddMediatR(cfg =>
-    cfg.RegisterServicesFromAssembly(typeof(CreateTaskCommand).Assembly));
+    cfg.RegisterServicesFromAssembly(typeof(ApplicationAssemblyMarker).Assembly));
 
 builder.Services.AddScoped<ITaskRepository, TaskRepository>();
 

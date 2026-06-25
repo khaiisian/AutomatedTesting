@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AutomatedTesting.Db\AutomatedTesting.Db.csproj" />
+  </ItemGroup>
+
 </Project>

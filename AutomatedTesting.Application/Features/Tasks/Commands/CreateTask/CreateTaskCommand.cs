@@ -1,5 +1,4 @@
-﻿using AutomatedTesting.Db.AppDbContextModels;
-using AutomatedTesting.Repositories.Tasks;
+﻿using AutomatedTesting.Repositories.Tasks;
 using AutomatedTesting.Shared;
 using AutomatedTesting.Shared.Models.Tasks;
 using MediatR;
