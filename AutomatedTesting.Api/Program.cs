@@ -1,4 +1,7 @@
-using AutomatedTesting.Api.Repositories.Tasks;
+using AutomatedTesting.Application.Features.Tasks.Commands.CreateTask;
+using AutomatedTesting.Db.AppDbContextModels;
+using AutomatedTesting.Repositories.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +11,14 @@ builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddDbContext<AppDbContext>(opt =>
+{
+    opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
+});
+
+builder.Services.AddMediatR(cfg =>
+    cfg.RegisterServicesFromAssembly(typeof(CreateTaskCommand).Assembly));
 
 builder.Services.AddScoped<ITaskRepository, TaskRepository>();
 

@@ -1,4 +1,7 @@
 <Solution>
   <Project Path="AutomatedTesting.Api/AutomatedTesting.Api.csproj" />
+  <Project Path="AutomatedTesting.Application/AutomatedTesting.Application.csproj" Id="1857280b-cd7f-42be-9ca4-5e1cc10749d8" />
   <Project Path="AutomatedTesting.Db/AutomatedTesting.Db.csproj" />
+  <Project Path="AutomatedTesting.Repositories/AutomatedTesting.Repositories.csproj" Id="491d837d-b3ac-47f0-8cb1-d75823f0a32c" />
+  <Project Path="AutomatedTesting.Shared/AutomatedTesting.Shared.csproj" Id="d934d8fc-412e-4ccd-b36a-4cb9125db714" />
 </Solution>

@@ -1,7 +1,7 @@
-﻿using AutomatedTesting.Api.Models.Tasks;
+﻿using AutomatedTesting.Shared.Models.Tasks;
 using AutomatedTesting.Db.AppDbContextModels;
 
-namespace AutomatedTesting.Api.Repositories.Tasks;
+namespace AutomatedTesting.Repositories.Tasks;
 
 public class TaskRepository : ITaskRepository
 {

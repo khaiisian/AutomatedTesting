@@ -13,11 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AutomatedTesting.Application\AutomatedTesting.Application.csproj" />
     <ProjectReference Include="..\AutomatedTesting.Db\AutomatedTesting.Db.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Features\Tasks\Queries\GetAllTasks\" />
   </ItemGroup>
 
 </Project>

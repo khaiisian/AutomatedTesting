@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.9" />
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="10.2.3" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\AutomatedTesting.Db\AutomatedTesting.Db.csproj" />
+	  <ProjectReference Include="..\AutomatedTesting.Shared\AutomatedTesting.Shared.csproj" />
+	</ItemGroup>
+</Project>
