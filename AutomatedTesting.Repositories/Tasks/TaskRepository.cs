@@ -14,11 +14,17 @@ public class TaskRepository : ITaskRepository
         _appDbContext = appDbContext;
     }
 
-    public async Task<List<TaskResponseModel>> GetItemList(CancellationToken ct)
+    public async Task<List<TaskResponseModel>> GetTaskList(CancellationToken ct)
     {
         var lst = await _appDbContext.TaskItems.ToListAsync(ct);
         var response = lst.Select(x => Mapper.Map(x)).ToList();
         return response;
+    }
+
+    public async Task<TaskResponseModel?> GetTaskById (int id, CancellationToken ct)
+    {
+        var task = await _appDbContext.TaskItems.FirstOrDefaultAsync(x => x.Id == id, ct);
+        return task is null ? null: Mapper.Map(task);
     }
 
     public async Task<int> CreateTask(CreateTaskRequestModel request, CancellationToken ct)

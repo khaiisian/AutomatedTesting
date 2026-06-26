@@ -1,5 +1,6 @@
 ﻿using AutomatedTesting.Application.Features.Tasks.Commands.CreateTask;
 using AutomatedTesting.Application.Features.Tasks.Queries.GetAllTasks;
+using AutomatedTesting.Application.Features.Tasks.Queries.GetTaskById;
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -21,6 +22,16 @@ public class TaskController : ControllerBase
     public async Task<IActionResult> GetAll()
     {
         var result = await _mediator.Send(new GetAllTasksQuery());
+        return Ok(result);
+    }
+
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetTaskById(int id)
+    {
+        var result = await _mediator.Send(new GetTaskByIdQuery()
+        {
+            id = id
+        });
         return Ok(result);
     }
 

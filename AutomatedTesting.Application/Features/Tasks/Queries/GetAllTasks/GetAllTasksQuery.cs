@@ -22,7 +22,7 @@ public class GetAllTaskHandler: IRequestHandler<GetAllTasksQuery, Result<List<Ta
 
     public async Task<Result<List<TaskResponseModel>>> Handle(GetAllTasksQuery query, CancellationToken ct)
     {
-        var lst = await _taskRepository.GetItemList(ct);
+        var lst = await _taskRepository.GetTaskList(ct);
         if(lst.Count > 0)
         {
             return Result<List<TaskResponseModel>>.Success(lst, "Tasks are retrieved successfully.");
