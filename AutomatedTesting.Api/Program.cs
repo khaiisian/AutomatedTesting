@@ -1,7 +1,9 @@
 using AutomatedTesting.Application;
+using AutomatedTesting.Application.Common.Behaviors;
 using AutomatedTesting.Application.Features.Tasks.Commands.CreateTask;
 using AutomatedTesting.Db.AppDbContextModels;
 using AutomatedTesting.Repositories.Tasks;
+using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -13,13 +15,19 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddValidatorsFromAssembly(typeof(ApplicationAssemblyMarker).Assembly);
+
 builder.Services.AddDbContext<AppDbContext>(opt =>
 {
     opt.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
 builder.Services.AddMediatR(cfg =>
-    cfg.RegisterServicesFromAssembly(typeof(ApplicationAssemblyMarker).Assembly));
+{
+    cfg.RegisterServicesFromAssembly(typeof(ApplicationAssemblyMarker).Assembly);
+    cfg.AddOpenBehavior(typeof(ValidationBehavior<,>));
+});
+
 
 builder.Services.AddScoped<ITaskRepository, TaskRepository>();
 
