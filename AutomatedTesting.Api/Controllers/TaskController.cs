@@ -39,6 +39,7 @@ public class TaskController : ControllerBase
     public async Task<IActionResult> Create(CreateTaskCommand request)
     {
         var result = await _mediator.Send(request);
+        if (result.IsValidationError) return BadRequest(result);
         return Ok(result);
     }
 }
