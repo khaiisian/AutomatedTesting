@@ -31,7 +31,7 @@ public class TaskRepository : ITaskRepository
     {
         var item = new TaskItem
         {
-            Title = request.Title,
+            Title = request.Title!,
             Description = request.Description,
             Iscompleted = false,
             CreatedAt = DateTime.UtcNow,
@@ -39,6 +39,30 @@ public class TaskRepository : ITaskRepository
 
         await _appDbContext.AddAsync(item);
         var result = await _appDbContext.SaveChangesAsync(ct);
+        return result;
+    }
+
+    public async Task<int> UpdateTask(int id, UpdateTaskRequestModel request, CancellationToken ct)
+    {
+        var item = await _appDbContext.TaskItems.FirstOrDefaultAsync(x => x.Id == id);
+        if (item is null) return -1;
+
+        if (!string.IsNullOrEmpty(request.Title)) item.Title = request.Title;
+        if (!string.IsNullOrEmpty(request.Description)) item.Description = request.Description;
+        if (request.IsCompleted.HasValue) item.Iscompleted = request.IsCompleted.Value;
+
+        int result = await _appDbContext.SaveChangesAsync(ct);
+        return result;
+    }
+
+    public async Task<int> DeleteTask(int id, CancellationToken ct)
+    {
+        var item = await _appDbContext.TaskItems.FirstOrDefaultAsync(x => x.Id == id);
+        if (item is null) return -1;
+
+        _appDbContext.TaskItems.Remove(item);
+
+        int result = await _appDbContext.SaveChangesAsync(ct);
         return result;
     }
 }

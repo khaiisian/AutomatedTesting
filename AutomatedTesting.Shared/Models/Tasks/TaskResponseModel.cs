@@ -21,3 +21,13 @@ public class CreateTaskResponseModel
 {
 
 }
+
+public class UpdateTaskResponseModel: TaskResponseModel
+{
+
+}
+
+public class DeleteTaskResponseModel
+{
+
+}
