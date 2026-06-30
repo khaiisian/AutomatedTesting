@@ -7,8 +7,8 @@ namespace AutomatedTesting.Application.Features.Tasks.Commands.CreateTask;
 
 public class CreateTaskCommand : IRequest<Result<CreateTaskResponseModel>>
 {
-    public string Title { get; set; }
-    public string Description { get; set; }
+    public string? Title { get; set; }
+    public string? Description { get; set; }
 }
 
 public class CreateTaskHandler : IRequestHandler<CreateTaskCommand, Result<CreateTaskResponseModel>>
