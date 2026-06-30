@@ -22,8 +22,8 @@ public class CreateTaskCommandValidatorTests
     {
         var command = new CreateTaskCommand
         {
-            Title = "testing",
-            Description = "testing",
+            Title = "testing 1",
+            Description = "testing 1",
         };
 
         var result = _validator.TestValidate(command);
