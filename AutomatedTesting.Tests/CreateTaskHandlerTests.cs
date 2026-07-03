@@ -10,15 +10,22 @@ public class CreateTaskHandlerTests
     [Fact]
     public async Task Return_success_saving()
     {
+        // Fake the repository
         var repo = new Mock<ITaskRepository>();
+
+        // Setup its CreateTask method (like scripting in a way the test wanted)
         repo.Setup(r => r.CreateTask(It.IsAny<CreateTaskRequestModel>(), It.IsAny<CancellationToken>()))
                     .ReturnsAsync(1);
 
+        // Build real handler + fake repo
         var handler = new CreateTaskHandler(repo.Object);
+        // Make a command (input request)       
         var command = new CreateTaskCommand { Title = "Test", Description = "test" };
 
+        // Run the handler              
         var result = await handler.Handle(command, CancellationToken.None);
 
+        // CHECK the result
         Assert.True(result.IsSuccess);
     }
 
