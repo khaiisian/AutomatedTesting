@@ -1,4 +1,7 @@
 <Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="README.md" />
+  </Folder>
   <Project Path="AutomatedTesting.Api/AutomatedTesting.Api.csproj" />
   <Project Path="AutomatedTesting.Application/AutomatedTesting.Application.csproj" Id="1857280b-cd7f-42be-9ca4-5e1cc10749d8" />
   <Project Path="AutomatedTesting.Db/AutomatedTesting.Db.csproj" />
